@@ -1,0 +1,16 @@
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\bin\Debug\net5.0\DomsWorkOutPlanner.exe
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\bin\Debug\net5.0\DomsWorkOutPlanner.deps.json
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\bin\Debug\net5.0\DomsWorkOutPlanner.runtimeconfig.json
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\bin\Debug\net5.0\DomsWorkOutPlanner.runtimeconfig.dev.json
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\bin\Debug\net5.0\DomsWorkOutPlanner.dll
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\bin\Debug\net5.0\ref\DomsWorkOutPlanner.dll
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\bin\Debug\net5.0\DomsWorkOutPlanner.pdb
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\obj\Debug\net5.0\DomsWorkOutPlanner.csproj.AssemblyReference.cache
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\obj\Debug\net5.0\DomsWorkOutPlanner.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\obj\Debug\net5.0\DomsWorkOutPlanner.AssemblyInfoInputs.cache
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\obj\Debug\net5.0\DomsWorkOutPlanner.AssemblyInfo.cs
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\obj\Debug\net5.0\DomsWorkOutPlanner.csproj.CoreCompileInputs.cache
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\obj\Debug\net5.0\DomsWorkOutPlanner.dll
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\obj\Debug\net5.0\ref\DomsWorkOutPlanner.dll
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\obj\Debug\net5.0\DomsWorkOutPlanner.pdb
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\obj\Debug\net5.0\DomsWorkOutPlanner.genruntimeconfig.cache
