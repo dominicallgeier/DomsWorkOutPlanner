@@ -1,10 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net.Http;
 
 namespace DomsWorkOutPlanner
 {
     class Program
     {
-        static void Main(string[] args)
+       static List<string> responses = new List<string>();
+        
+    static void Main(string[] args)
         {
             bool showMenu = true;
             while (showMenu)
@@ -17,15 +22,15 @@ namespace DomsWorkOutPlanner
         {
             Console.Clear();
             Console.WriteLine("*************************************");
-            Console.WriteLine();
+            
             Console.WriteLine("Welcome to Dominic's Fitness Planner!");
-            Console.WriteLine();
+            
             Console.WriteLine("*************************************");
             
             Console.WriteLine("*************************************");
-            Console.WriteLine();
+            
             Console.WriteLine("Create your own work out!");
-            Console.WriteLine();
+            
             Console.WriteLine("*************************************");
             Console.WriteLine();
             Console.WriteLine("Please select a category you want to work out:");
@@ -60,102 +65,119 @@ namespace DomsWorkOutPlanner
             return Console.ReadLine();
         }
 
-        private static void Legs()
+        public static void Legs()
         {
             Console.Clear();
             Console.WriteLine("Type which leg work out you would like to do:");
             Console.WriteLine("Squat, Leg Press or Lunges");
 
-            char[] charArray = CaptureInput().ToCharArray();
-            
-            DisplayResult(String.Concat(charArray));
+
+            string yourWorkOut = CaptureInput();
+            responses.Add(yourWorkOut);
+            DisplayResult(yourWorkOut);
+
         }
 
-        private static void Arms()
+        public static void Arms()
         {
             Console.Clear();
             Console.WriteLine("Type which arm work out you would like to do:");
             Console.WriteLine("Bench Press, Bicep Curls or Incline Press");
 
-            char[] charArray = CaptureInput().ToCharArray();
-
-            DisplayResult(String.Concat(charArray));
+            string yourWorkOut = CaptureInput();
+            responses.Add(yourWorkOut);
+            DisplayResult(yourWorkOut);
         }
 
-        private static void Cardio()
+        public static void Cardio()
         {
             Console.Clear();
             Console.WriteLine("Type which cardio exercise you would like to do:");
             Console.WriteLine("Run, Cycling or Swimming");
 
-            char[] charArray = CaptureInput().ToCharArray();
+            
 
-            DisplayResult(String.Concat(charArray));
+            string yourWorkOut = CaptureInput();
+            responses.Add(yourWorkOut);
+            DisplayResult(yourWorkOut);
         }
 
         private static void DisplayResult(string message)
         {
-            Console.WriteLine($"\r\nYou chose: {message}");
+            Console.WriteLine();
+            Console.WriteLine($"You chose: {message}");
             if (message.ToLower() == "squat")
             {
                 string squatTxt = System.IO.File.ReadAllText(@"C:\WorkOutTxt\Legs\Squat.txt");
-                Console.WriteLine(squatTxt);
+                Console.WriteLine("\n" + squatTxt);
             }
             else if (message.ToLower() == "leg press")
             {
                 string legPressTxt = System.IO.File.ReadAllText(@"C:\WorkOutTxt\Legs\LegPress.txt");
-                Console.WriteLine(legPressTxt);
+                Console.WriteLine("\n" + legPressTxt);
             }
             else if (message.ToLower() == "lunges")
             {
                 string lungesTxt = System.IO.File.ReadAllText(@"C:\WorkOutTxt\Legs\Lunges.txt");
-                Console.WriteLine(lungesTxt);
+                Console.WriteLine("\n" + lungesTxt);
             }
             else if (message.ToLower() == "bench press")
             {
                 string benchTxt = System.IO.File.ReadAllText(@"C:\WorkOutTxt\Arms\BenchPress.txt");
-                Console.WriteLine(benchTxt);
+                Console.WriteLine("\n" + benchTxt);
             }
             else if (message.ToLower() == "bicep curls")
             {
                 string bicepsTxt = System.IO.File.ReadAllText(@"C:\WorkOutTxt\Arms\BicepCurls.txt");
-                Console.WriteLine(bicepsTxt);
+                Console.WriteLine("\n" + bicepsTxt);
             }
             else if (message.ToLower() == "incline press")
             {
                 string inclineTxt = System.IO.File.ReadAllText(@"C:\WorkOutTxt\Arms\InclinePress.txt");
-                Console.WriteLine(inclineTxt);
+                Console.WriteLine("\n" + inclineTxt);
             }
             else if (message.ToLower() == "run")
             {
                 string runTxt = System.IO.File.ReadAllText(@"C:\WorkOutTxt\Cardio\Run.txt");
-                Console.WriteLine(runTxt);
+                Console.WriteLine("\n" + runTxt);
             }
             else if (message.ToLower() == "cycling")
             {
                 string cyclingTxt = System.IO.File.ReadAllText(@"C:\WorkOutTxt\Cardio\Cycling.txt");
-                Console.WriteLine(cyclingTxt);
+                Console.WriteLine("\n" + cyclingTxt);
             }
             else if (message.ToLower() == "swimming")
             {
                 string swimmingTxt = System.IO.File.ReadAllText(@"C:\WorkOutTxt\Cardio\Swimming.txt");
-                Console.WriteLine(swimmingTxt);
+                Console.WriteLine("\n" + swimmingTxt);
             }
             else
             {
                 Console.WriteLine("Invalid Input!");
+                
             }
 
 
-            Console.Write("\r\nPlease select another work out (enter)");
+            Console.Write("\nPlease select another work out (enter)");
             Console.ReadLine();
         }
 
-        private static void Exit()
+        public static void Exit()
         {
+            Console.Clear();
             Console.WriteLine("Enjoy your work out and have a great day!");
             Console.WriteLine("Here is your work out for " + DateTime.Now.ToLongDateString() + ": ");
-            
+            foreach (string x in responses)
+            {
+                Console.WriteLine();
+                Console.WriteLine("-" + x.ToUpper());
+                Console.WriteLine();
+
+                
+            }
+                    
+
+
         }
     }
 }
