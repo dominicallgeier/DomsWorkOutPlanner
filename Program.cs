@@ -37,7 +37,8 @@ namespace DomsWorkOutPlanner
             Console.WriteLine("1) Legs");
             Console.WriteLine("2) Arms");
             Console.WriteLine("3) Cardio");
-            Console.WriteLine("4) EXIT");
+            Console.WriteLine("4) Check your BMI");
+            Console.WriteLine("5) EXIT");
             
 
             switch (Console.ReadLine())
@@ -52,6 +53,9 @@ namespace DomsWorkOutPlanner
                     Cardio();
                     return true;
                 case "4":
+                    checkBMI();
+                    return true;
+                case "5":
                     Exit();
                     return false;
                 default:
@@ -160,6 +164,49 @@ namespace DomsWorkOutPlanner
 
             Console.Write("\nPlease select another work out (enter)");
             Console.ReadLine();
+        }
+
+
+        public static void checkBMI()
+        {
+            Console.Clear();
+            
+
+            double meters = .0254;
+            double kG = 0.45;
+            Console.WriteLine("Please enter your height in inches:");
+            double height = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Please enter your weight in pounds:");
+            double weight = Convert.ToDouble(Console.ReadLine());
+            double weightConversion = kG * weight;
+            double heightConversion = meters * height;
+            double BMI = weightConversion / (heightConversion * heightConversion);
+
+            Console.Clear();
+            Console.WriteLine($"Your BMI: {Math.Round(BMI)}");
+            if (BMI < 18.5)
+            {
+                Console.WriteLine("You are underweight.");
+            }
+            else if (BMI >= 18.5 && BMI <= 24.9)
+            {
+                Console.WriteLine("You are normal weight.");
+            }
+            else if (BMI >= 25 && BMI <= 29.9)
+            {
+                Console.WriteLine("You are overweight.");
+            }
+            else
+            {
+                Console.WriteLine("You are obese.");
+            }
+            Console.WriteLine("\nPress ENTER for main menu.");
+            Console.ReadKey();
+
+            
+
+
+
         }
 
         public static void Exit()
