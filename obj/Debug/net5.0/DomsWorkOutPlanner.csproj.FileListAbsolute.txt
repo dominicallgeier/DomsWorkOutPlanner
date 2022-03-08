@@ -14,3 +14,12 @@ C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\r
 C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\obj\Debug\net5.0\ref\DomsWorkOutPlanner.dll
 C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\obj\Debug\net5.0\DomsWorkOutPlanner.pdb
 C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\obj\Debug\net5.0\DomsWorkOutPlanner.genruntimeconfig.cache
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\bin\Debug\net5.0\Txt\Arms\BenchPress.txt
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\bin\Debug\net5.0\Txt\Arms\BicepCurls.txt
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\bin\Debug\net5.0\Txt\Arms\InclinePress.txt
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\bin\Debug\net5.0\Txt\Cardio\Cycling.txt
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\bin\Debug\net5.0\Txt\Cardio\Run.txt
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\bin\Debug\net5.0\Txt\Cardio\Swimming.txt
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\bin\Debug\net5.0\Txt\Legs\LegPress.txt
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\bin\Debug\net5.0\Txt\Legs\Lunges.txt
+C:\Users\Dominic Allgeier\OneDrive - University of Louisville\Desktop\Code Lou\repos\DomsWorkOutPlanner\bin\Debug\net5.0\Txt\Legs\Squat.txt
