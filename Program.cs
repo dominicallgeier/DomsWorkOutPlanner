@@ -5,8 +5,10 @@ using System.Net.Http;
 
 namespace DomsWorkOutPlanner
 {
+    
     class Program
     {
+        //my List of user selected workouts to display at the end
         static List<string> responses = new List<string>();
         
         
@@ -15,6 +17,9 @@ namespace DomsWorkOutPlanner
 
         static void Main(string[] args)
         {
+            /* Master Loop
+             show menu until user tells it exit which would make it false, and then exiting. 
+            This creates a master loop for the user to go back and add multiple work outs to their planner */
             bool showMenu = true;
             while (showMenu)
             {
@@ -53,6 +58,7 @@ namespace DomsWorkOutPlanner
 
             switch (Console.ReadLine())
             {
+                //allowing my user to have categories to choose from on the menu
                 case "1":
                     Legs();
                     return true;
@@ -75,7 +81,7 @@ namespace DomsWorkOutPlanner
 
         private static string CaptureInput()
         {
-            
+            //this is returning the workout the user wants
             Console.ForegroundColor = ConsoleColor.Yellow;
             
             Console.Write("Enter the work out you want: ");
@@ -91,7 +97,7 @@ namespace DomsWorkOutPlanner
             Console.WriteLine("Type which leg work out you would like to do:");
             Console.WriteLine("Squat, Leg Press or Lunges");
 
-
+            
             string yourWorkOut = CaptureInput();
             responses.Add(yourWorkOut);
             DisplayResult(yourWorkOut);
@@ -124,6 +130,7 @@ namespace DomsWorkOutPlanner
 
         private static void DisplayResult(string message)
         {
+            //reading from a txt file
 
             Console.WriteLine();
             Console.WriteLine($"You chose: {message}");
@@ -193,7 +200,7 @@ namespace DomsWorkOutPlanner
             Console.ReadLine();
         }
 
-
+        //BMI calculation. going from inches/pounds to meters/kG
         public static void checkBMI()
         {
             Console.Clear();
