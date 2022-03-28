@@ -21,15 +21,17 @@ namespace DomsWorkOutPlanner
              show menu until user tells it exit which would make it false, and then exiting. 
             This creates a master loop for the user to go back and add multiple work outs to their planner */
             bool showMenu = true;
+            Exercise exercise = new Exercise();
+            Initialize(exercise);
             while (showMenu)
             {
-                showMenu = MainMenu();
+                showMenu = MainMenu(exercise);
             }
 
             
 
         }
-        private static bool MainMenu()
+        private static bool MainMenu(Exercise exercise)
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -60,13 +62,13 @@ namespace DomsWorkOutPlanner
             {
                 //allowing my user to have categories to choose from on the menu
                 case "1":
-                    Legs();
+                    Legs(exercise);
                     return true;
                 case "2":
-                    Arms();
+                    Arms(exercise);
                     return true;
                 case "3":
-                    Cardio();
+                    Cardio(exercise);
                     return true;
                 case "4":
                     checkBMI();
@@ -91,7 +93,7 @@ namespace DomsWorkOutPlanner
             
         }
 
-        public static void Legs()
+        public static void Legs(Exercise exercise)
         {
             Console.Clear();
             Console.WriteLine("Type which leg work out you would like to do:");
@@ -100,11 +102,11 @@ namespace DomsWorkOutPlanner
             
             string yourWorkOut = CaptureInput();
             responses.Add(yourWorkOut);
-            DisplayResult(yourWorkOut);
+            DisplayResult(yourWorkOut, exercise);
 
         }
 
-        public static void Arms()
+        public static void Arms(Exercise exercise)
         {
             Console.Clear();
             Console.WriteLine("Type which arm work out you would like to do:");
@@ -112,10 +114,10 @@ namespace DomsWorkOutPlanner
 
             string yourWorkOut = CaptureInput();
             responses.Add(yourWorkOut);
-            DisplayResult(yourWorkOut);
+            DisplayResult(yourWorkOut, exercise);
         }
 
-        public static void Cardio()
+        public static void Cardio(Exercise exercise)
         {
             Console.Clear();
             Console.WriteLine("Type which cardio exercise you would like to do:");
@@ -125,10 +127,69 @@ namespace DomsWorkOutPlanner
 
             string yourWorkOut = CaptureInput();
             responses.Add(yourWorkOut);
-            DisplayResult(yourWorkOut);
+            DisplayResult(yourWorkOut, exercise);
         }
 
-        private static void DisplayResult(string message)
+        private static void Initialize (Exercise exercise)
+        {
+            //cardio
+            var runTxtFileName = System.IO.Directory.GetCurrentDirectory() + @"\Txt\Cardio\Run.txt";
+            string runTxt = System.IO.File.ReadAllText(runTxtFileName);
+
+            var cyclingTxtFileName = System.IO.Directory.GetCurrentDirectory() + @"\Txt\Cardio\Cycling.txt";
+            string cyclingTxt = System.IO.File.ReadAllText(cyclingTxtFileName);
+
+            var swimmingTxtFileName = System.IO.Directory.GetCurrentDirectory() + @"\Txt\Cardio\Swimming.txt";
+            string swimmingTxt = System.IO.File.ReadAllText(swimmingTxtFileName);
+           
+            //legs
+
+            var squatTxtFileName = System.IO.Directory.GetCurrentDirectory() + @"\Txt\Legs\Squat.txt";
+            string squatTxt = System.IO.File.ReadAllText(squatTxtFileName);
+
+            var legPressTxtFileName = System.IO.Directory.GetCurrentDirectory() + @"\Txt\Legs\LegPress.txt";
+            string legPressTxt = System.IO.File.ReadAllText(legPressTxtFileName);
+
+            var lungesTxtFileName = System.IO.Directory.GetCurrentDirectory() + @"\Txt\Legs\Lunges.txt";
+            string lungesTxt = System.IO.File.ReadAllText(lungesTxtFileName);
+
+            //arms
+
+            var benchTxtFileName = System.IO.Directory.GetCurrentDirectory() + @"\Txt\Arms\BenchPress.txt";
+            string benchTxt = System.IO.File.ReadAllText(benchTxtFileName);
+
+            var bicepTxtFileName = System.IO.Directory.GetCurrentDirectory() + @"\Txt\Arms\BicepCurls.txt";
+            string bicepsTxt = System.IO.File.ReadAllText(bicepTxtFileName);
+
+            var inclineTxtFileName = System.IO.Directory.GetCurrentDirectory() + @"\Txt\Arms\InclinePress.txt";
+            string inclineTxt = System.IO.File.ReadAllText(inclineTxtFileName);
+
+
+
+            Cardio cardio = new Cardio();
+            Legs legs = new Legs();
+            Arms arms = new Arms();
+
+
+            cardio.Running = runTxt;
+            cardio.Biking = cyclingTxt;
+            cardio.Swimming = swimmingTxt;
+
+            legs.Squatting = squatTxt;
+            legs.LegPress = legPressTxt;
+            legs.Lunging = lungesTxt;
+
+            arms.Bench = benchTxt;
+            arms.Curls = bicepsTxt;
+            arms.Incline = inclineTxt;
+            
+
+
+            exercise.Legs = legs;
+            exercise.Cardio = cardio;
+            exercise.Arms = arms;
+        }
+        private static void DisplayResult(string message, Exercise exercise)
         {
             //reading from a txt file
 
@@ -136,58 +197,48 @@ namespace DomsWorkOutPlanner
             Console.WriteLine($"You chose: {message}");
             if (message.ToLower() == "squat")
             {
-                var squatTxtFileName = System.IO.Directory.GetCurrentDirectory() + @"\Txt\Legs\Squat.txt";
-                string squatTxt = System.IO.File.ReadAllText(squatTxtFileName);
+                
                
-                Console.WriteLine("\n" + squatTxt);
+                Console.WriteLine("\n" + exercise.Legs.Squatting);
             }
             else if (message.ToLower() == "leg press")
             {
-                var legPressTxtFileName = System.IO.Directory.GetCurrentDirectory() + @"\Txt\Legs\LegPress.txt";
-                string legPressTxt = System.IO.File.ReadAllText(legPressTxtFileName);
-                Console.WriteLine("\n" + legPressTxt);
+                
+                Console.WriteLine("\n" + exercise.Legs.LegPress);
             }
             else if (message.ToLower() == "lunges")
             {
-                var lungesTxtFileName = System.IO.Directory.GetCurrentDirectory() + @"\Txt\Legs\Lunges.txt";
-                string lungesTxt = System.IO.File.ReadAllText(lungesTxtFileName);
-                Console.WriteLine("\n" + lungesTxt);
+                
+                Console.WriteLine("\n" + exercise.Legs.Lunging);
             }
             else if (message.ToLower() == "bench press")
             {
-                var benchTxtFileName = System.IO.Directory.GetCurrentDirectory() + @"\Txt\Arms\BenchPress.txt";
-                string benchTxt = System.IO.File.ReadAllText(benchTxtFileName);
-                Console.WriteLine("\n" + benchTxt);
+                
+                Console.WriteLine("\n" + exercise.Arms.Bench);
             }
             else if (message.ToLower() == "bicep curls")
             {
-                var bicepTxtFileName = System.IO.Directory.GetCurrentDirectory() + @"\Txt\Arms\BicepCurls.txt";
-                string bicepsTxt = System.IO.File.ReadAllText(bicepTxtFileName);
-                Console.WriteLine("\n" + bicepsTxt);
+                
+                Console.WriteLine("\n" + exercise.Arms.Curls);
             }
             else if (message.ToLower() == "incline press")
             {
-                var inclineTxtFileName = System.IO.Directory.GetCurrentDirectory() + @"\Txt\Arms\InclinePress.txt";
-                string inclineTxt = System.IO.File.ReadAllText(inclineTxtFileName);
-                Console.WriteLine("\n" + inclineTxt);
+                
+                Console.WriteLine("\n" + exercise.Arms.Incline);
             }
             else if (message.ToLower() == "run")
             {
-                var runTxtFileName = System.IO.Directory.GetCurrentDirectory() + @"\Txt\Cardio\Run.txt";
-                string runTxt = System.IO.File.ReadAllText(runTxtFileName);
-                Console.WriteLine("\n" + runTxt);
+                Console.WriteLine("\n" + exercise.Cardio.Running);
             }
             else if (message.ToLower() == "cycling")
             {
-                var cyclingTxtFileName = System.IO.Directory.GetCurrentDirectory() + @"\Txt\Cardio\Cycling.txt";
-                string cyclingTxt = System.IO.File.ReadAllText(cyclingTxtFileName);
-                Console.WriteLine("\n" + cyclingTxt);
+             
+                Console.WriteLine("\n" + exercise.Cardio.Biking);
             }
             else if (message.ToLower() == "swimming")
             {
-                var swimmingTxtFileName = System.IO.Directory.GetCurrentDirectory() + @"\Txt\Cardio\Swimming.txt";
-                string swimmingTxt = System.IO.File.ReadAllText(swimmingTxtFileName);
-                Console.WriteLine("\n" + swimmingTxt);
+                
+                Console.WriteLine("\n" + exercise.Cardio.Swimming);
             }
             else
             {
@@ -200,22 +251,17 @@ namespace DomsWorkOutPlanner
             Console.ReadLine();
         }
 
-        //BMI calculation. going from inches/pounds to meters/kG
+        
         public static void checkBMI()
         {
             Console.Clear();
-
-
-            double meters = .0254;
-            double kG = 0.45;
+           
             Console.WriteLine("Please enter your height in inches:");
             double height = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Please enter your weight in pounds:");
             double weight = Convert.ToDouble(Console.ReadLine());
-            double weightConversion = kG * weight;
-            double heightConversion = meters * height;
-            double BMI = weightConversion / (heightConversion * heightConversion);
-
+            double BMI = GetBMI(height, weight);
+            
             Console.Clear();
             Console.WriteLine($"Your BMI: {Math.Round(BMI)}");
             if (BMI < 18.5)
@@ -250,6 +296,18 @@ namespace DomsWorkOutPlanner
 
 
         }
+        //returning user's BMI and using conversions going from inches/pounds to meters/kG
+        public static double GetBMI(double height, double weight)
+        {
+            double BMI = 0;
+            double meters = .0254;
+            double kG = 0.45;
+            double weightConversion = kG * weight;
+            double heightConversion = meters * height;
+            return BMI = weightConversion / (heightConversion * heightConversion);
+            
+
+        }
 
         public static void Exit()
         {
@@ -260,13 +318,13 @@ namespace DomsWorkOutPlanner
             {
                 Console.WriteLine();
                 Console.WriteLine("-" + x.ToUpper());
-                
+
                 
                 Console.WriteLine();
 
 
             }
-
+            
             Console.WriteLine();
             Quote();
 
